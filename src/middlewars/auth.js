@@ -46,7 +46,7 @@ exports.isAuthenticatedUser = async (req, res, next) => {
         next();
         
     } catch (err) {
-        res.status(500).send({ success: false, message });
+        res.status(500).send({ success: false, error:err.message });
     }
 };
 

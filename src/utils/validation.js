@@ -36,6 +36,12 @@ exports.validateCreateUser = [
       minSymbols: 1
     })
     .withMessage('Password must be at least 8 characters long, include an uppercase letter, a number, and a special character.'),
+
+    body('birthday')
+    .notEmpty()
+    .withMessage('Birthday is required.')
+    .isISO8601()
+    .withMessage('Please enter a valid date in YYYY-MM-DD format.') 
 ];
 
 

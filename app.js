@@ -12,11 +12,13 @@ mongoose.connect(process.env.MONGODB_STR)
 
 // Import Routes
 const userRoutes = require("./src/route/user.route");
+const reminderRoutes = require('./src/route/reminder.route')
 
 
 
 // Use Routes
 app.use("/api/users", userRoutes);
+app.use("/api/vi/reminder", reminderRoutes)
 
 
 

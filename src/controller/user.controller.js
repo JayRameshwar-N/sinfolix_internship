@@ -11,7 +11,6 @@ const {
 
 
 
-
  
 //---------- User Sign-up
 exports.createUser = [
@@ -19,7 +18,7 @@ exports.createUser = [
     
     async (req, res) => {
       try {
-        const { firstName, lastName, email, password, confirmPassword,role } = req.body;
+        const { firstName, lastName, email, password, confirmPassword, birthday, role } = req.body;
   
         const existingUserByEmail = await userModel.findOne({ email });
         if (existingUserByEmail) {
@@ -34,6 +33,7 @@ exports.createUser = [
         await userModel.create({
           firstName,
           lastName,
+          birthday,
           email,
           password: hashedPassword,
           token,
